@@ -355,6 +355,15 @@ body.lang-ar .section-title{ letter-spacing: 0; }
 /* ---------- OFFER / BUNDLES ---------- */
 .offer-sub{ color: rgba(255,255,255,.65); margin-top:.6rem; }
 .bundles-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1.4rem; }
+.deal-timer{ display:flex; flex-direction:column; align-items:center; gap:.9rem; margin: 0 auto 3rem; text-align:center; }
+.deal-timer-label{ font-size:.8rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color: rgba(255,255,255,.7); }
+.deal-timer-clock{ display:flex; align-items:center; gap:.6rem; }
+.deal-timer-unit{ display:flex; flex-direction:column; align-items:center; background: rgba(212,175,55,.08); border:1px solid rgba(212,175,55,.35); border-radius: var(--r-md); padding:.65rem 1.1rem; min-width:64px; }
+.deal-timer-unit span{ font-size:1.9rem; font-weight:800; color: var(--gold); font-variant-numeric: tabular-nums; line-height:1; }
+.deal-timer-unit small{ display:block; font-size:.62rem; color: rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.06em; margin-top:.2rem; }
+.deal-timer-colon{ font-size:1.6rem; font-weight:800; color: rgba(255,255,255,.28); }
+.deal-timer-note{ font-size:.78rem; color: rgba(255,255,255,.42); }
+@media (max-width:480px){ .deal-timer-unit{ min-width:52px; padding:.55rem .8rem; } .deal-timer-unit span{ font-size:1.5rem; } }
 .bundle-card{
   background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.16); border-radius: var(--r-lg);
   padding: 2rem 1.6rem; display:flex; flex-direction:column; align-items:center; gap:.6rem; text-align:center;
