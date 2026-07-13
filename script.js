@@ -157,7 +157,11 @@
       "offer.select": "Choisir",
       "offer.stock": "Stock disponible",
       "offer.updated": "Mise à jour aujourd'hui",
-
+"timer.label": "L'offre du jour se termine dans",
+"timer.hours": "h",
+"timer.minutes": "min",
+"timer.seconds": "s",
+"timer.note": "Nouvelle offre chaque jour à minuit.",
       "order.eyebrow": "Dernière étape",
       "order.title": "Finalisez votre commande.",
       "order.sub": "Aucun paiement en ligne. Vous réglez à la réception de votre colis.",
@@ -326,7 +330,11 @@
       "offer.select": "اختر",
       "offer.stock": "المنتج متوفر",
       "offer.updated": "آخر تحديث اليوم",
-
+"timer.label": "عرض اليوم ينتهي خلال",
+"timer.hours": "س",
+"timer.minutes": "د",
+"timer.seconds": "ث",
+"timer.note": "عرض جديد كل يوم عند منتصف الليل.",
       "order.eyebrow": "الخطوة الأخيرة",
       "order.title": "أكمل طلبك.",
       "order.sub": "لا حاجة للدفع الإلكتروني. تدفع فقط عند استلام طردك.",
@@ -397,7 +405,32 @@
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
   });
+/* =================================================================
+   DAILY DEAL COUNTDOWN — genuinely counts down to real midnight,
+   resets naturally each day. Not tied to session/refresh, so it's honest.
+   ================================================================= */
+const tHours = document.getElementById("tHours");
+const tMinutes = document.getElementById("tMinutes");
+const tSeconds = document.getElementById("tSeconds");
 
+function pad(n) { return String(n).padStart(2, "0"); }
+
+function updateDealTimer() {
+  if (!tHours) return;
+  const now = new Date();
+  const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+  const diff = Math.max(0, midnight - now);
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  tHours.textContent = pad(h);
+  tMinutes.textContent = pad(m);
+  tSeconds.textContent = pad(s);
+}
+if (tHours) {
+  updateDealTimer();
+  setInterval(updateDealTimer, 1000);
+}
   /* =================================================================
      3. PRELOADER
      ================================================================= */
