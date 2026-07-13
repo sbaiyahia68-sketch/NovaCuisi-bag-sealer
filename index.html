@@ -585,7 +585,17 @@ fbq('track', 'PageView');
       <h2 class="section-title section-title-light" id="offer-title" data-i18n="offer.title">Choisissez votre pack.</h2>
       <p class="offer-sub" data-i18n="offer.sub">Plus vous en prenez, plus vous économisez.</p>
     </div>
-
+<div class="deal-timer reveal-up" aria-label="Compte à rebours de l'offre du jour">
+  <span class="deal-timer-label" data-i18n="timer.label">L'offre du jour se termine dans</span>
+  <div class="deal-timer-clock">
+    <div class="deal-timer-unit"><span id="tHours">00</span><small data-i18n="timer.hours">h</small></div>
+    <span class="deal-timer-colon">:</span>
+    <div class="deal-timer-unit"><span id="tMinutes">00</span><small data-i18n="timer.minutes">min</small></div>
+    <span class="deal-timer-colon">:</span>
+    <div class="deal-timer-unit"><span id="tSeconds">00</span><small data-i18n="timer.seconds">s</small></div>
+  </div>
+  <span class="deal-timer-note" data-i18n="timer.note">Nouvelle offre chaque jour à minuit.</span>
+</div>
     <div class="bundles-grid">
       <button type="button" class="bundle-card" data-qty="1" data-price="195" data-label-fr="1 Produit" data-label-ar="قطعة واحدة">
         <span class="bundle-name" data-i18n="offer.b1.name">1 Produit</span>
